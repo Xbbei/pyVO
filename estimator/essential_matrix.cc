@@ -118,8 +118,8 @@ EssentialMatrixFivePointEstimator::Estimate(const std::vector<X_t>& points1,
 
 void EssentialMatrixFivePointEstimator::Residuals(
     const std::vector<X_t>& points1, const std::vector<Y_t>& points2,
-    const M_t& E, std::vector<double>* residuals) {
-  ComputeSquaredSampsonError(points1, points2, E, residuals);
+    const M_t& E, std::vector<double>& residuals) {
+  ComputeSquaredSampsonError(points1, points2, E, &residuals);
 }
 
 std::vector<EssentialMatrixEightPointEstimator::M_t>
@@ -172,6 +172,6 @@ EssentialMatrixEightPointEstimator::Estimate(const std::vector<X_t>& points1,
 
 void EssentialMatrixEightPointEstimator::Residuals(
     const std::vector<X_t>& points1, const std::vector<Y_t>& points2,
-    const M_t& E, std::vector<double>* residuals) {
-  ComputeSquaredSampsonError(points1, points2, E, residuals);
+    const M_t& E, std::vector<double>& residuals) {
+  ComputeSquaredSampsonError(points1, points2, E, &residuals);
 }

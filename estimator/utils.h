@@ -1,11 +1,8 @@
-#ifndef PYVO_ESTIMATOR_UTILS_H_
-#define PYVO_ESTIMATOR_UTILS_H_
+#pragma once
 
 #include <vector>
 
 #include <Eigen/Core>
-
-namespace colmap {
 
 // Center and normalize image points.
 //
@@ -52,7 +49,3 @@ void ComputeSquaredReprojectionError(
     const std::vector<Eigen::Vector2d>& points2D,
     const std::vector<Eigen::Vector3d>& points3D,
     const Eigen::Matrix3x4d& proj_matrix, std::vector<double>* residuals);
-
-}  // namespace colmap
-
-#endif  // COLMAP_SRC_ESTIMATORS_UTILS_H_

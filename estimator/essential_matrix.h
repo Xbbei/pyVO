@@ -1,5 +1,4 @@
-#ifndef PYVO_ESSENTIAL_MATRIX_H_
-#define PYVO_ESSENTIAL_MATRIX_H_
+#pragma once
 
 #include <Eigen/Core>
 // Essential matrix estimator from corresponding normalized point pairs.
@@ -41,7 +40,7 @@ class EssentialMatrixFivePointEstimator {
   // @param residuals  Output vector of residuals.
   static void Residuals(const std::vector<X_t>& points1,
                         const std::vector<Y_t>& points2, const M_t& E,
-                        std::vector<double>* residuals);
+                        std::vector<double>& residuals);
 };
 
 // Essential matrix estimator from corresponding normalized point pairs.
@@ -78,7 +77,5 @@ class EssentialMatrixEightPointEstimator {
   // @param residuals  Output vector of residuals.
   static void Residuals(const std::vector<X_t>& points1,
                         const std::vector<Y_t>& points2, const M_t& E,
-                        std::vector<double>* residuals);
+                        std::vector<double>& residuals);
 };
-
-#endif

@@ -1,5 +1,4 @@
-#ifndef PYVO_BASE_POLYNOMIAL_H_
-#define PYVO_BASE_POLYNOMIAL_H_
+#pragma once
 
 #include <Eigen/Core>
 
@@ -62,5 +61,3 @@ T EvaluatePolynomial(const Eigen::VectorXd& coeffs, const T& x) {
   }
   return value;
 };
-
-#endif
