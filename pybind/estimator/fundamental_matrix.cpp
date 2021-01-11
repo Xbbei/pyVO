@@ -1,6 +1,6 @@
-#include "pybind/fundamental_matrix.h"
+#include "pybind/estimator/fundamental_matrix.h"
 
-#include "estimator/fundamental_matrix.h"
+#include "src/estimator/fundamental_matrix.h"
 
 void pybind_fundamental_matrix(py::module &m) {
     py::module m_submodule = m.def_submodule("fundamental_matrix");

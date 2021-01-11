@@ -1,6 +1,6 @@
-#include "pybind/homography_matrix.h"
+#include "pybind/estimator/homography_matrix.h"
 
-#include "estimator/homography_matrix.h"
+#include "src/estimator/homography_matrix.h"
 
 void pybind_homography_matrix(py::module &m) {
     py::module m_submodule = m.def_submodule("homography_matrix");

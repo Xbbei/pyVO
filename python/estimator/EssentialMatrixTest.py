@@ -1,5 +1,5 @@
 import sys
-sys.path.append("../build/")
+sys.path.append("../../build/")
 import pyVO
 import numpy as np
 

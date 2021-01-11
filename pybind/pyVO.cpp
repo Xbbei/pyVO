@@ -1,6 +1,6 @@
-#include "pybind/essential_matrix.h"
-#include "pybind/fundamental_matrix.h"
-#include "pybind/homography_matrix.h"
+#include "pybind/estimator/essential_matrix.h"
+#include "pybind/estimator/fundamental_matrix.h"
+#include "pybind/estimator/homography_matrix.h"
 
 PYBIND11_MODULE(pyVO, m) {
     pybind_essential_matrix(m);

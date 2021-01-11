@@ -11,7 +11,7 @@ include_directories(./)
 find_package(Glog REQUIRED)
 include_directories(${GLOG_INCLUDE_DIRS})
 
-file(GLOB volib base/*.c* base/*.h* estimator/*.c* estimator/*.h*)
+file(GLOB volib src/base/*.c* src/base/*.h* src/estimator/*.c* src/estimator/*.h*)
 
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -msse -msse2 -msse3 -O3 -std=c++11")
 add_library(volib SHARED ${volib})

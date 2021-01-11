@@ -1,6 +1,6 @@
-#include "pybind/essential_matrix.h"
+#include "pybind/estimator/essential_matrix.h"
 
-#include "estimator/essential_matrix.h"
+#include "src/estimator/essential_matrix.h"
 
 void pybind_essential_matrix(py::module &m) {
     py::module m_submodule = m.def_submodule("essential_matrix");

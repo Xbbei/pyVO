@@ -1,4 +1,4 @@
-#include "estimator/homography_matrix.h"
+#include "src/estimator/homography_matrix.h"
 
 #include <glog/logging.h>
 
@@ -6,8 +6,8 @@
 #include <Eigen/LU>
 #include <Eigen/SVD>
 
-#include "base/polynomial.h"
-#include "estimator/utils.h"
+#include "src/base/polynomial.h"
+#include "src/estimator/utils.h"
 
 std::vector<HomographyMatrixEstimator::M_t> HomographyMatrixEstimator::Estimate(
     const std::vector<X_t>& points1, const std::vector<Y_t>& points2) {

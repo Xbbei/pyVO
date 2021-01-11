@@ -1,4 +1,4 @@
-#include "estimator/fundamental_matrix.h"
+#include "src/estimator/fundamental_matrix.h"
 
 #include <cfloat>
 #include <complex>
@@ -9,8 +9,8 @@
 #include <Eigen/LU>
 #include <Eigen/SVD>
 
-#include "base/polynomial.h"
-#include "estimator/utils.h"
+#include "src/base/polynomial.h"
+#include "src/estimator/utils.h"
 
 std::vector<FundamentalMatrixSevenPointEstimator::M_t>
 FundamentalMatrixSevenPointEstimator::Estimate(

@@ -1,4 +1,4 @@
-#include "base/polynomial.h"
+#include "src/base/polynomial.h"
 
 #include <Eigen/Eigenvalues>
 #include <glog/logging.h>
