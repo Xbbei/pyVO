@@ -4,6 +4,10 @@
 
 #include <Eigen/Core>
 
+namespace Eigen {
+typedef Eigen::Matrix<double, 3, 4> Matrix3x4d;
+}
+
 // Center and normalize image points.
 //
 // The points are transformed in a two-step procedure that is expressed

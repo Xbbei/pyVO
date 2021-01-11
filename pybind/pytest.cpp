@@ -1,5 +1,5 @@
-#include "essential_matrix.h"
+#include "pybind/essential_matrix.h"
 
-PYBIND11_MODULE(pytest, m) {
-    pybind_essential_matrix;
+PYBIND11_MODULE(pyVO, m) {
+    pybind_essential_matrix(m);
 }

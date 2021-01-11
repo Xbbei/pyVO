@@ -1,6 +1,7 @@
 #pragma once
 
 #include <Eigen/Core>
+#include <vector>
 // Essential matrix estimator from corresponding normalized point pairs.
 //
 // This algorithm solves the 5-Point problem based on the following paper:
@@ -38,9 +39,8 @@ class EssentialMatrixFivePointEstimator {
   // @param points2    Second set of corresponding points.
   // @param E          3x3 essential matrix.
   // @param residuals  Output vector of residuals.
-  static void Residuals(const std::vector<X_t>& points1,
-                        const std::vector<Y_t>& points2, const M_t& E,
-                        std::vector<double>& residuals);
+  static std::vector<double> Residuals(const std::vector<X_t>& points1,
+                        const std::vector<Y_t>& points2, const M_t& E);
 };
 
 // Essential matrix estimator from corresponding normalized point pairs.
@@ -75,7 +75,6 @@ class EssentialMatrixEightPointEstimator {
   // @param points2    Second set of corresponding points.
   // @param E          3x3 essential matrix.
   // @param residuals  Output vector of residuals.
-  static void Residuals(const std::vector<X_t>& points1,
-                        const std::vector<Y_t>& points2, const M_t& E,
-                        std::vector<double>& residuals);
+  static std::vector<double> Residuals(const std::vector<X_t>& points1,
+                        const std::vector<Y_t>& points2, const M_t& E);
 };

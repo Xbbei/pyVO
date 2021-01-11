@@ -2,6 +2,7 @@
 
 #include <complex>
 #include <glog/logging.h>
+#include <iostream>
 
 #include <Eigen/Geometry>
 #include <Eigen/LU>
@@ -14,6 +15,17 @@ std::vector<EssentialMatrixFivePointEstimator::M_t>
 EssentialMatrixFivePointEstimator::Estimate(const std::vector<X_t>& points1,
                                             const std::vector<Y_t>& points2) {
   CHECK_EQ(points1.size(), points2.size());
+
+
+  // Check input data is correct
+  // for (int i = 0; i < points1.size(); ++i) {
+  //   std::cout << points1[i][0] << " " << points1[i][1] << " ";
+  // }
+  // std::cout << std::endl;
+  // for (int i = 0; i < points2.size(); ++i) {
+  //   std::cout << points2[i][0] << " " << points2[i][1] << " ";
+  // }
+  // std::cout << std::endl;
 
   // Step 1: Extraction of the nullspace x, y, z, w.
 
@@ -42,7 +54,7 @@ EssentialMatrixFivePointEstimator::Estimate(const std::vector<X_t>& points1,
   // Step 3: Gauss-Jordan elimination with partial pivoting on A.
 
   Eigen::Matrix<double, 10, 20> A;
-#include "estimators/essential_matrix_poly.h"
+#include "estimator/essential_matrix_poly.h"
   Eigen::Matrix<double, 10, 10> AA =
       A.block<10, 10>(0, 0).partialPivLu().solve(A.block<10, 10>(0, 10));
 
@@ -64,7 +76,7 @@ EssentialMatrixFivePointEstimator::Estimate(const std::vector<X_t>& points1,
 
   // Step 5: Extraction of roots from the degree 10 polynomial.
   Eigen::Matrix<double, 11, 1> coeffs;
-#include "estimators/essential_matrix_coeffs.h"
+#include "estimator/essential_matrix_coeffs.h"
 
   Eigen::VectorXd roots_real;
   Eigen::VectorXd roots_imag;
@@ -116,10 +128,12 @@ EssentialMatrixFivePointEstimator::Estimate(const std::vector<X_t>& points1,
   return models;
 }
 
-void EssentialMatrixFivePointEstimator::Residuals(
+std::vector<double> EssentialMatrixFivePointEstimator::Residuals(
     const std::vector<X_t>& points1, const std::vector<Y_t>& points2,
-    const M_t& E, std::vector<double>& residuals) {
+    const M_t& E) {
+  std::vector<double> residuals;
   ComputeSquaredSampsonError(points1, points2, E, &residuals);
+  return residuals;
 }
 
 std::vector<EssentialMatrixEightPointEstimator::M_t>
@@ -170,8 +184,10 @@ EssentialMatrixEightPointEstimator::Estimate(const std::vector<X_t>& points1,
   return models;
 }
 
-void EssentialMatrixEightPointEstimator::Residuals(
+std::vector<double> EssentialMatrixEightPointEstimator::Residuals(
     const std::vector<X_t>& points1, const std::vector<Y_t>& points2,
-    const M_t& E, std::vector<double>& residuals) {
+    const M_t& E) {
+  std::vector<double> residuals;
   ComputeSquaredSampsonError(points1, points2, E, &residuals);
+  return residuals;
 }
