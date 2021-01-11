@@ -45,4 +45,6 @@ points2 = np.array([1.002114, 1.129644, 1.521742, 1.846002,
     0.878616, 0.602447, 0.642616, 1.028681,]).reshape(-1, 2)
 
 eightpointestimator = pyVO.essential_matrix.EssentialMatrixEightPointEstimator()
-print(eightpointestimator.Estimate(points1, points2))
+gt = np.array([-0.0368602, 0.265019, -0.0625948, -0.299679, -0.110667, 0.147114, 0.169381, -0.21072, -0.00401306]).reshape(3, 3)
+pr = eightpointestimator.Estimate(points1, points2)
+print(np.isclose(pr[0], gt, atol=1e-5))
