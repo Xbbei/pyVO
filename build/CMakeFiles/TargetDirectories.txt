@@ -1,4 +1,0 @@
-/home/wjl/pyVO/build/CMakeFiles/rebuild_cache.dir
-/home/wjl/pyVO/build/CMakeFiles/edit_cache.dir
-/home/wjl/pyVO/build/CMakeFiles/volib.dir
-/home/wjl/pyVO/build/CMakeFiles/pyVO.dir

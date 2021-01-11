@@ -1,1 +1,0 @@
-/usr/bin/c++ -fPIC  -Wall -msse -msse2 -msse3 -O3 -std=c++11  -shared  -o pyVO.cpython-38-x86_64-linux-gnu.so CMakeFiles/pyVO.dir/pybind/essential_matrix.cpp.o CMakeFiles/pyVO.dir/pybind/fundamental_matrix.cpp.o CMakeFiles/pyVO.dir/pybind/pyVO.cpp.o -Wl,-rpath,/home/wjl/pyVO/build libvolib.so /usr/lib/x86_64-linux-gnu/libglog.so -flto 
