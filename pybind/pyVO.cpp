@@ -8,6 +8,7 @@
 
 // optim
 #include "pybind/optim/random_sampler.h"
+#include "pybind/optim/support_measurement.h"
 
 PYBIND11_MODULE(pyVO, m) {
     // base
@@ -18,4 +19,5 @@ PYBIND11_MODULE(pyVO, m) {
     pybind_estimator_homography_matrix(m);
     // optim
     pybind_optim_random_sampler(m);
+    pybind_optim_support_measurement(m);
 }
