@@ -9,5 +9,6 @@ void pybind_estimator_homography_matrix(py::module &m) {
     py::detail::bind_copy_functions<HomographyMatrixEstimator>(homography_estimator);
     homography_estimator
         .def_static("Estimate", &HomographyMatrixEstimator::Estimate)
-        .def_static("Residuals", &HomographyMatrixEstimator::Residuals);
+        .def_static("Residuals", &HomographyMatrixEstimator::Residuals)
+        .def_readonly("kMinNumSamples", &HomographyMatrixEstimator::kMinNumSamples);
 }

@@ -18,7 +18,7 @@ class FundamentalMatrixSevenPointEstimator {
   typedef Eigen::Matrix3d M_t;
 
   // The minimum number of samples needed to estimate a model.
-  static const int kMinNumSamples = 7;
+  const int kMinNumSamples = 7;
 
   // Estimate either 1 or 3 possible fundamental matrix solutions from a set of
   // corresponding points.
@@ -57,7 +57,7 @@ class FundamentalMatrixEightPointEstimator {
   typedef Eigen::Matrix3d M_t;
 
   // The minimum number of samples needed to estimate a model.
-  static const int kMinNumSamples = 8;
+  const int kMinNumSamples = 8;
 
   // Estimate fundamental matrix solutions from a set of corresponding points.
   //

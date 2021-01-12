@@ -13,7 +13,7 @@ class HomographyMatrixEstimator {
   typedef Eigen::Matrix3d M_t;
 
   // The minimum number of samples needed to estimate a model.
-  static const int kMinNumSamples = 4;
+  const int kMinNumSamples = 4;
 
   // Estimate the projective transformation (homography).
   //

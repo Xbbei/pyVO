@@ -16,7 +16,7 @@ class EssentialMatrixFivePointEstimator {
   typedef Eigen::Matrix3d M_t;
 
   // The minimum number of samples needed to estimate a model.
-  static const int kMinNumSamples = 5;
+  const int kMinNumSamples = 5;
 
   // Estimate up to 10 possible essential matrix solutions from a set of
   // corresponding points.
@@ -55,7 +55,7 @@ class EssentialMatrixEightPointEstimator {
   typedef Eigen::Matrix3d M_t;
 
   // The minimum number of samples needed to estimate a model.
-  static const int kMinNumSamples = 8;
+  const int kMinNumSamples = 8;
 
   // Estimate essential matrix solutions from  set of corresponding points.
   //
