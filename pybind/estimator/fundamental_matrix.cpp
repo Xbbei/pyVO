@@ -2,8 +2,8 @@
 
 #include "src/estimator/fundamental_matrix.h"
 
-void pybind_fundamental_matrix(py::module &m) {
-    py::module m_submodule = m.def_submodule("fundamental_matrix");
+void pybind_estimator_fundamental_matrix(py::module &m) {
+    py::module m_submodule = m.def_submodule("estimator");
     py::class_<FundamentalMatrixSevenPointEstimator> fundalmental_seven(m_submodule, "FundamentalMatrixSevenPointEstimator");
     py::detail::bind_default_constructor<FundamentalMatrixSevenPointEstimator>(fundalmental_seven);
     py::detail::bind_copy_functions<FundamentalMatrixSevenPointEstimator>(fundalmental_seven);

@@ -2,4 +2,4 @@
 
 #include "pybind/pybind_inc.h"
 
-void pybind_homography_matrix(py::module &m);
+void pybind_estimator_homography_matrix(py::module &m);

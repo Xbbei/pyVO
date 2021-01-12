@@ -11,12 +11,12 @@ include_directories(./)
 find_package(Glog REQUIRED)
 include_directories(${GLOG_INCLUDE_DIRS})
 
-file(GLOB volib src/base/*.c* src/base/*.h* src/estimator/*.c* src/estimator/*.h*)
+file(GLOB volib src/base/*.c* src/base/*.h* src/estimator/*.c* src/estimator/*.h* src/util/*.c* src/optim/*.c*)
 
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -msse -msse2 -msse3 -O3 -std=c++11")
 add_library(volib SHARED ${volib})
 
 find_package(pybind11 REQUIRED)
-file(GLOB pyvosrc pybind/*.cpp)
+file(GLOB pyvosrc pybind/*.cpp pybind/estimator/*.cpp pybind/base/*.cpp pybind/optim/*.cpp)
 pybind11_add_module(pyVO ${pyvosrc})
 target_link_libraries(pyVO PRIVATE volib ${GLOG_LIBRARIES})

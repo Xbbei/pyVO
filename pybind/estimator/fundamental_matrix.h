@@ -2,4 +2,4 @@
 
 #include "pybind/pybind_inc.h"
 
-void pybind_fundamental_matrix(py::module &m);
+void pybind_estimator_fundamental_matrix(py::module &m);

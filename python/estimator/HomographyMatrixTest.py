@@ -3,7 +3,7 @@ sys.path.append("../../build/")
 import pyVO
 import numpy as np
 
-homography_estimator = pyVO.homography_matrix.HomographyMatrixEstimator()
+homography_estimator = pyVO.estimator.HomographyMatrixEstimator()
 for x in range(10):
     H0 = np.array([x, 0.2, 0.3, 30, 0.2, 0.1, 0.3, 20, 1], dtype=np.float64).reshape(3, 3)
 

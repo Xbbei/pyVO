@@ -30,7 +30,7 @@ points2 = np.array([0.7570, 2.7340,
     0.5,     0.9,    
     0.9,     0.2]).reshape(-1, 2)
 
-fivepointestimator = pyVO.essential_matrix.EssentialMatrixFivePointEstimator()
+fivepointestimator = pyVO.estimator.EssentialMatrixFivePointEstimator()
 print(fivepointestimator.Estimate(points1, points2))
 
 # 8 points algorithm test
@@ -44,7 +44,7 @@ points2 = np.array([1.002114, 1.129644, 1.521742, 1.846002,
     0.839509, 0.087290, 1.779735, 1.116857,
     0.878616, 0.602447, 0.642616, 1.028681,]).reshape(-1, 2)
 
-eightpointestimator = pyVO.essential_matrix.EssentialMatrixEightPointEstimator()
+eightpointestimator = pyVO.estimator.EssentialMatrixEightPointEstimator()
 gt = np.array([-0.0368602, 0.265019, -0.0625948, -0.299679, -0.110667, 0.147114, 0.169381, -0.21072, -0.00401306]).reshape(3, 3)
 pr = eightpointestimator.Estimate(points1, points2)
 print(np.isclose(pr[0], gt, atol=1e-5))

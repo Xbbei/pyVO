@@ -2,8 +2,8 @@
 
 #include "src/estimator/essential_matrix.h"
 
-void pybind_essential_matrix(py::module &m) {
-    py::module m_submodule = m.def_submodule("essential_matrix");
+void pybind_estimator_essential_matrix(py::module &m) {
+    py::module m_submodule = m.def_submodule("estimator");
     py::class_<EssentialMatrixFivePointEstimator> essential_five(m_submodule, "EssentialMatrixFivePointEstimator");
     py::detail::bind_default_constructor<EssentialMatrixFivePointEstimator>(essential_five);
     py::detail::bind_copy_functions<EssentialMatrixFivePointEstimator>(essential_five);
