@@ -8,7 +8,7 @@ class RansacPY(object):
     def __init__(self, estimator, supportmeasurer, sampler,
         max_error = 0.0, min_inlier_ratio = 0.1, confidence = 0.99,
         dyn_num_trials_multiplier = 3.0, min_num_trials = 0,
-        max_num_trials = 65536):
+        max_num_trials = 10000000):
         super(RansacPY, self).__init__()
 
         self.estimator = estimator()
@@ -62,10 +62,10 @@ class RansacPY(object):
         num_trials_multiplier):
         inlier_ratio = num_inliers / num_samples
         nom = 1 - confidence
-        if norm < 0:
-            return 65536
+        if nom <= 0:
+            return 10000000
         denom = 1 - math.pow(inlier_ratio, self.kMinNumSamples)
-        if denom < 0:
+        if denom <= 0:
             return 1
         return math.ceil(math.log(nom) / math.log(denom) * num_trials_multiplier)
 
@@ -108,7 +108,7 @@ class RansacPY(object):
                 if self.supportmeasurer.Compare(support_tmp, support):
                     support = support_tmp
                     model = sample_model
-                    dyn_max_num_trials = self.ComputeNumTrials(support.num_inliers, num_samples, self.confidence, self.dyn_num_trials_multiplier)
+                    dyn_max_num_trials = self.compute_num_trials(support.num_inliers, num_samples, self.confidence, self.dyn_num_trials_multiplier)
                 if dyn_max_num_trials < num_trials and num_trials > self.min_num_trials:
                     abort = True
                     break
@@ -122,3 +122,15 @@ class RansacPY(object):
             inlier_mask.append(residuals[i] <= max_residual)
 
         return success, num_trials, support, inlier_mask, model
+
+
+if __name__ == "__main__":
+    essential5_ransac = RansacPY(pyVO.estimator.EssentialMatrixFivePointEstimator, pyVO.optim.Support, pyVO.optim.RandomSampler, 0.1)
+    # Check compute_num_trials
+    print(essential5_ransac.compute_num_trials(1, 100, 0.99, 1.0) == 46051698048)
+    print(essential5_ransac.compute_num_trials(10, 100, 0.99, 1.0) == 460515)
+    print(essential5_ransac.compute_num_trials(10, 100, 0.999, 1.0) == 690773)
+    print(essential5_ransac.compute_num_trials(10, 100, 0.999, 2.0) == 1381545)
+    print(essential5_ransac.compute_num_trials(100, 100, 0.99, 1.0) == 1)
+    print(essential5_ransac.compute_num_trials(100, 100, 0.999, 1.0) == 1)
+    print(essential5_ransac.compute_num_trials(100, 100, 0.0, 1.0) == 1)
