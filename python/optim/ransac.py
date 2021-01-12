@@ -102,7 +102,7 @@ class RansacPY(object):
             X_rand, Y_rand = self.sample(X, Y)
             sample_models = self.estimator.Estimate(X_rand, Y_rand)
             for sample_model in sample_models:
-                residuals = estimator.Residuals(X, Y, sample_model)
+                residuals = self.estimator.Residuals(X, Y, sample_model)
                 assert len(residuals) == num_samples
                 support_tmp = self.supportmeasurer.Evaluate(residuals, max_residual)
                 if self.supportmeasurer.Compare(support_tmp, support):
@@ -116,7 +116,7 @@ class RansacPY(object):
         if support.num_inliers < self.kMinNumSamples:
             return success, num_trials, support, inlier_mask, model
         success = True
-        residuals = estimator.Residuals(X, Y, model)
+        residuals = self.estimator.Residuals(X, Y, model)
         assert len(residuals) == num_samples
         for i in range(num_samples):
             inlier_mask.append(residuals[i] <= max_residual)
