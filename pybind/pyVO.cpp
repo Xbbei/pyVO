@@ -1,5 +1,6 @@
 //base
 #include "pybind/base/homography_matrix.h"
+#include "pybind/base/pose.h"
 
 // estimator
 #include "pybind/estimator/essential_matrix.h"
@@ -13,6 +14,7 @@
 PYBIND11_MODULE(pyVO, m) {
     // base
     pybind_base_homography_matrix(m);
+    pybind_base_pose(m);
     // estimator
     pybind_estimator_essential_matrix(m);
     pybind_estimator_fundamental_matrix(m);
