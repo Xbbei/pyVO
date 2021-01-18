@@ -3,7 +3,7 @@
 #include <cstddef>
 #include <vector>
 
-#include <glog/logging.h>
+#include "src/util/logging.h"
 
 // Random sampler for RANSAC-based methods.
 //

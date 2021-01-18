@@ -11,6 +11,10 @@
 #include "pybind/optim/random_sampler.h"
 #include "pybind/optim/support_measurement.h"
 
+// feature
+#include "pybind/feature/sift.h"
+#include "pybind/feature/types.h"
+
 PYBIND11_MODULE(pyVO, m) {
     // base
     pybind_base_homography_matrix(m);
@@ -22,4 +26,7 @@ PYBIND11_MODULE(pyVO, m) {
     // optim
     pybind_optim_random_sampler(m);
     pybind_optim_support_measurement(m);
+    // feature
+    pybind_feature_sift(m);
+    pybind_feature_types(m);
 }

@@ -12,6 +12,8 @@
 #include <pybind11/chrono.h>
 #include <pybind11/stl_bind.h>
 
+#include "pybind/utils/ndarray_converter.h"
+
 namespace py = pybind11;
 
 namespace pybind11 {
@@ -28,5 +30,19 @@ void bind_copy_functions(Class_ &cl) {
     cl.def("__copy__", [](T &v) { return T(v); });
     cl.def("__deepcopy__", [](T &v, py::dict &memo) { return T(v); });
 }
+
+template <> struct type_caster<cv::Mat> {
+public:
+    
+    PYBIND11_TYPE_CASTER(cv::Mat, _("numpy.ndarray"));
+    
+    bool load(handle src, bool) {
+        return NDArrayConverter::toMat(src.ptr(), value);
+    }
+    
+    static handle cast(const cv::Mat &m, return_value_policy, handle defval) {
+        return handle(NDArrayConverter::toNDArray(m));
+    }
+};
 }
 }

@@ -5,10 +5,10 @@
 #include <Eigen/Geometry>
 #include <Eigen/LU>
 #include <Eigen/Eigenvalues>
-#include <glog/logging.h>
 
 // #include "src/base/essential_matrix.h"
 #include "src/base/pose.h"
+#include "src/util/logging.h"
 
 Eigen::Vector3d TriangulatePoint(const Eigen::Matrix3x4d& proj_matrix1,
                                  const Eigen::Matrix3x4d& proj_matrix2,

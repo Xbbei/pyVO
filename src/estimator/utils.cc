@@ -1,6 +1,6 @@
 #include "src/estimator/utils.h"
 
-#include <glog/logging.h>
+#include "src/util/logging.h"
 
 void CenterAndNormalizeImagePoints(const std::vector<Eigen::Vector2d>& points,
                                    std::vector<Eigen::Vector2d>* normed_points,

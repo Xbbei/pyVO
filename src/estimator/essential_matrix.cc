@@ -1,7 +1,6 @@
 #include "src/estimator/essential_matrix.h"
 
 #include <complex>
-#include <glog/logging.h>
 #include <iostream>
 
 #include <Eigen/Geometry>
@@ -10,6 +9,7 @@
 
 #include "src/base/polynomial.h"
 #include "src/estimator/utils.h"
+#include "src/util/logging.h"
 
 std::vector<EssentialMatrixFivePointEstimator::M_t>
 EssentialMatrixFivePointEstimator::Estimate(const std::vector<X_t>& points1,

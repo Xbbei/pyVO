@@ -107,4 +107,4 @@ if(NOT OPENMP_ENABLED OR NOT OPENMP_FOUND)
     add_definitions("-DVL_DISABLE_OPENMP")
 endif()
 
-add_library(vlfeat ${VLFEAT_SOURCE_FILES})
+add_library(vlfeat SHARED ${VLFEAT_SOURCE_FILES})

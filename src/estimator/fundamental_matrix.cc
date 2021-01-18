@@ -3,7 +3,6 @@
 #include <cfloat>
 #include <complex>
 #include <vector>
-#include <glog/logging.h>
 
 #include <Eigen/Geometry>
 #include <Eigen/LU>
@@ -11,6 +10,7 @@
 
 #include "src/base/polynomial.h"
 #include "src/estimator/utils.h"
+#include "src/util/logging.h"
 
 std::vector<FundamentalMatrixSevenPointEstimator::M_t>
 FundamentalMatrixSevenPointEstimator::Estimate(

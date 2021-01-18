@@ -1,9 +1,8 @@
 #include "src/base/projection.h"
 
-#include <glog/logging.h>
-
 #include "src/base/pose.h"
 #include "src/util/matrix.h"
+#include "src/util/logging.h"
 
 Eigen::Matrix3x4d ComposeProjectionMatrix(const Eigen::Vector4d& qvec,
                                           const Eigen::Vector3d& tvec) {

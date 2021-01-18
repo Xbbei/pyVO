@@ -1,11 +1,11 @@
 #include "src/base/pose.h"
 
-#include <glog/logging.h>
 #include <Eigen/Eigenvalues>
 
 #include "src/base/projection.h"
 #include "src/base/triangulation.h"
 #include "src/util/math.h"
+#include "src/util/logging.h"
 
 Eigen::Matrix3d CrossProductMatrix(const Eigen::Vector3d& vector) {
   Eigen::Matrix3d matrix;

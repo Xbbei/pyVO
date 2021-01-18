@@ -1,7 +1,7 @@
 #include "src/base/polynomial.h"
 
 #include <Eigen/Eigenvalues>
-#include <glog/logging.h>
+#include "src/util/logging.h"
 
 namespace {
 // Remove leading zero coefficients.

@@ -47,17 +47,17 @@ class RansacPY(object):
         return X_rand, Y_rand
 
     # Determine the maximum number of trials required to sample at least one
-    #  outlier-free random set of samples with the specified confidence,
-    #  given the inlier ratio.
+    # outlier-free random set of samples with the specified confidence,
+    # given the inlier ratio.
     
-    #  @param num_inliers				The number of inliers.
-    #  @param num_samples				The total number of samples.
-    #  @param confidence				Confidence that one sample is
-    # 								outlier-free.
-    #  @param num_trials_multiplier   Multiplication factor to the computed
-    # 							    number of trials.
+    # @param num_inliers				The number of inliers.
+    # @param num_samples				The total number of samples.
+    # @param confidence				Confidence that one sample is
+    # 							outlier-free.
+    # @param num_trials_multiplier   Multiplication factor to the computed
+    # 						    number of trials.
     
-    #  @return               The required number of iterations.
+    # @return               The required number of iterations.
     def compute_num_trials(self, num_inliers, num_samples, confidence,
         num_trials_multiplier):
         inlier_ratio = num_inliers / num_samples
@@ -122,7 +122,6 @@ class RansacPY(object):
             inlier_mask.append(residuals[i] <= max_residual)
 
         return success, num_trials, support, inlier_mask, model
-
 
 if __name__ == "__main__":
     essential5_ransac = RansacPY(pyVO.estimator.EssentialMatrixFivePointEstimator, pyVO.optim.Support, pyVO.optim.RandomSampler, 0.1)

@@ -1,11 +1,11 @@
 #include "src/base/homography_matrix.h"
 
 #include <Eigen/Dense>
-#include <glog/logging.h>
 
 #include "src/util/math.h"
 #include "src/base/pose.h"
 #include "src/util/types.h"
+#include "src/util/logging.h"
 
 double ComputeOppositeOfMinor(const Eigen::Matrix3d& matrix, const size_t row,
                               const size_t col) {
