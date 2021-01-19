@@ -13,6 +13,7 @@
 
 // feature
 #include "pybind/feature/sift.h"
+#include "pybind/feature/orb.h"
 #include "pybind/feature/types.h"
 
 PYBIND11_MODULE(pyVO, m) {
@@ -29,4 +30,5 @@ PYBIND11_MODULE(pyVO, m) {
     // feature
     pybind_feature_sift(m);
     pybind_feature_types(m);
+    pybind_feature_orb(m);
 }
