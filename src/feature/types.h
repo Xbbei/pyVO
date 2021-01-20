@@ -49,6 +49,25 @@ struct FeatureKeypoint {
 typedef Eigen::Matrix<uint8_t, 1, Eigen::Dynamic, Eigen::RowMajor>
     FeatureDescriptor;
 
+struct FeatureMatch {
+  FeatureMatch()
+      : point2D_idx1(kInvalidPoint2DIdx), point2D_idx2(kInvalidPoint2DIdx), distance(-1.0) {}
+  FeatureMatch(const int point2D_idx1, const int point2D_idx2, const float distance)
+      : point2D_idx1(point2D_idx1), point2D_idx2(point2D_idx2), distance(distance) {}
+
+  // Feature index in first image.
+  int point2D_idx1 = kInvalidPoint2DIdx;
+  
+  // Feature index in second image.
+  int point2D_idx2 = kInvalidPoint2DIdx;
+
+  // Feature distance between first and second images
+  float distance;
+};
+
 typedef std::vector<FeatureKeypoint> FeatureKeypoints;
 typedef Eigen::Matrix<uint8_t, Eigen::Dynamic, Eigen::Dynamic, Eigen::RowMajor>
     FeatureDescriptors;
+
+typedef std::vector<FeatureMatch> FeatureMatches;
+typedef std::vector<std::pair<FeatureMatch, FeatureMatch> > FirstSecondFeatureMatches;

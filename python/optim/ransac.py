@@ -41,7 +41,7 @@ class RansacPY(object):
         sample_idxes = self.sampler.Sample()
         for idx in sample_idxes:
             X_rand.append(X[idx])
-            Y.rand.append(Y[idx])
+            Y_rand.append(Y[idx])
         X_rand = np.array(X_rand).reshape(len(sample_idxes), -1)
         Y_rand = np.array(Y_rand).reshape(len(sample_idxes), -1)
         return X_rand, Y_rand

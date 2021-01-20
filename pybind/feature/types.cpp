@@ -24,4 +24,12 @@ void pybind_feature_types(py::module &m) {
         .def_readwrite("a12", &FeatureKeypoint::a12)
         .def_readwrite("a21", &FeatureKeypoint::a21)
         .def_readwrite("a22", &FeatureKeypoint::a22);
+
+    py::class_<FeatureMatch> featurematch(m_submodule, "FeatureMatch");
+    featurematch
+        .def(py::init<>())
+        .def(py::init<const int, const int, const int>())
+        .def_readwrite("point2D_idx1", &FeatureMatch::point2D_idx1)
+        .def_readwrite("point2D_idx2", &FeatureMatch::point2D_idx2)
+        .def_readwrite("distance", &FeatureMatch::distance);
 }

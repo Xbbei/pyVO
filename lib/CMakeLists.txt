@@ -37,3 +37,4 @@ endif()
 
 add_subdirectory(SiftGPU)
 add_subdirectory(VLFeat)
+add_subdirectory(FLANN)

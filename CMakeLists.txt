@@ -34,6 +34,14 @@ set(PYTHON_INCLUDE_DIRS ${PYTHON_INCLUDE_DIRS} /opt/conda/lib/python3.8/site-pac
 
 include_directories(${PYTHON_INCLUDE_DIRS})
 
+FIND_PACKAGE( OpenMP REQUIRED)
+if(OPENMP_FOUND)
+    message("OPENMP FOUND")
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OpenMP_C_FLAGS}")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${OpenMP_EXE_LINKER_FLAGS}")
+endif()
+
 file(GLOB volib 
     src/base/*.c* 
     src/base/*.h* 
@@ -55,7 +63,7 @@ set (CMAKE_CXX_STANDARD 14)
 find_package(pybind11 REQUIRED)
 file(GLOB pyvosrc pybind/*.cpp pybind/estimator/*.cpp pybind/base/*.cpp pybind/optim/*.cpp pybind/feature/*.cpp pybind/utils/*.c*)
 pybind11_add_module(pyVO ${pyvosrc})
-target_link_libraries(pyVO PRIVATE volib ${GLOG_LIBRARIES} ${OpenCV_LIBS} sift_gpu vlfeat
+target_link_libraries(pyVO PRIVATE volib ${GLOG_LIBRARIES} ${OpenCV_LIBS} sift_gpu vlfeat flann
     ${SIFT_GPU_LIBRARIES}
     ${GLEW_LIBRARIES}
     ${OPENGL_gl_LIBRARY}

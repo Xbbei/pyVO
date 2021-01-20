@@ -15,6 +15,7 @@
 #include "pybind/feature/sift.h"
 #include "pybind/feature/orb.h"
 #include "pybind/feature/types.h"
+#include "pybind/feature/matcher.h"
 
 PYBIND11_MODULE(pyVO, m) {
     // base
@@ -31,4 +32,5 @@ PYBIND11_MODULE(pyVO, m) {
     pybind_feature_sift(m);
     pybind_feature_types(m);
     pybind_feature_orb(m);
+    pybind_feature_matcher(m);
 }
