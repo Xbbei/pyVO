@@ -3,7 +3,7 @@ sys.path.append("../../build/")
 import pyVO
 import numpy as np
 import math
-from .ransac import RansacPY
+from ransac import RansacPY
 
 
 # Implementation of LO-RANSAC (Locally Optimized RANSAC).

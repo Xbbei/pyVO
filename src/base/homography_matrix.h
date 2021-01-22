@@ -69,10 +69,11 @@ public:
   void PoseFromHomographyMatrixAfterDecompose(const std::vector<Eigen::Vector2d>& points1,
                               const std::vector<Eigen::Vector2d>& points2);
 
-  // Get R, t, n, after PoseFromHomographyMatrix
+  // Get R, t, n, points3D, after PoseFromHomographyMatrix
   Eigen::Matrix3d GetRotation() const;
   Eigen::Vector3d GetTranslation() const;
   Eigen::Vector3d GetNormal() const;
+  std::vector<Eigen::Vector3d> GetPoints3D() const;
 private:
   std::vector<Eigen::Matrix3d> Rs;
   std::vector<Eigen::Vector3d> ts;

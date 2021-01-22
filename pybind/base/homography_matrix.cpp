@@ -16,7 +16,8 @@ void pybind_base_homography_matrix(py::module &m) {
         .def("PoseFromHomographyMatrixAfterDecompose", &Homography2Pose::PoseFromHomographyMatrixAfterDecompose)
         .def("GetRotation", &Homography2Pose::GetRotation)
         .def("GetTranslation", &Homography2Pose::GetTranslation)
-        .def("GetNormal", &Homography2Pose::GetNormal);
+        .def("GetNormal", &Homography2Pose::GetNormal)
+        .def("GetPoints3D", &Homography2Pose::GetPoints3D);
 
     m_submodule.def("HomographyMatrixFromPose", &HomographyMatrixFromPose);
 }

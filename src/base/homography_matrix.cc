@@ -202,6 +202,10 @@ Eigen::Vector3d Homography2Pose::GetNormal() const {
     return n;
 }
 
+std::vector<Eigen::Vector3d> GetPoints3D() const {
+    return points3D;
+}
+
 void Homography2Pose::PoseFromHomographyMatrixAfterDecompose(const std::vector<Eigen::Vector2d>& points1,
                               const std::vector<Eigen::Vector2d>& points2)
 {
